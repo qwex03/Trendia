@@ -1,0 +1,23 @@
+{% extends 'base_public.html.twig' %}
+
+{% block title %}Trendia{% endblock %}
+
+{% block body %}
+<div class="min-h-screen flex flex-col items-center justify-center bg-black text-white px-4">
+    <div class="w-full max-w-md bg-neutral-900 p-10 rounded-2xl shadow-lg border border-neutral-800 text-center">
+        <h1 class="text-5xl font-extrabold mb-4 tracking-wide">Trendia</h1>
+        <p class="text-lg text-neutral-400 mb-8">L’application du suivi des actualités en temps réel</p>
+
+        <div class="flex flex-col gap-4">
+            <a href="{{ path('app_register') }}" 
+               class="w-full py-3 bg-white text-black font-semibold rounded-lg shadow hover:bg-neutral-200 transition duration-200">
+                S’inscrire
+            </a>
+            <a href="{{ path('app_login') }}" 
+               class="w-full py-3 border border-white text-white font-semibold rounded-lg hover:bg-white hover:text-black transition duration-200">
+                Se connecter
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}

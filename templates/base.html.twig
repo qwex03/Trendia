@@ -1,17 +1,49 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
-        {% block stylesheets %}
-        {% endblock %}
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Trendia{% endblock %}</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="h-screen flex bg-black text-white">
 
-        {% block javascripts %}
-            {% block importmap %}{{ importmap('app') }}{% endblock %}
-        {% endblock %}
-    </head>
-    <body>
+    {# Sidebar #}
+    <nav class="w-64 bg-neutral-900 border-r border-neutral-800 flex-shrink-0 flex flex-col p-6 justify-between">
+        <div>
+            <h1 class="text-2xl font-bold mb-6">Trendia</h1>
+
+            <ul class="space-y-3">
+                <li>
+                    <a href="" class="block px-4 py-2 rounded hover:bg-neutral-800 transition">
+                        Actualités
+                    </a>
+                </li>
+                <li>
+                    <a href="" class="block px-4 py-2 rounded hover:bg-neutral-800 transition">
+                        Catégories
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        {# Section utilisateur en bas #}
+        {% if app.user %}
+            <div class="mt-6 border-t border-neutral-800 pt-4">
+                <p class="text-sm text-neutral-400 mb-2">Connecté en tant que :</p>
+                <a href="" class="block text-white font-medium truncate hover:underline">
+                    {{ app.user.email }}
+                </a>
+                <a href="{{ path('app_logout') }}" class="block mt-2 px-4 py-2 bg-red-700 text-white rounded hover:bg-red-600 transition text-center">
+                    Déconnexion
+                </a>
+            </div>
+        {% endif %}
+    </nav>
+
+    {# Content #}
+    <main class="flex-1 p-8 overflow-auto">
         {% block body %}{% endblock %}
-    </body>
+    </main>
+
+</body>
 </html>

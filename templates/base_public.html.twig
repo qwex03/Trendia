@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Trendia{% endblock %}</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="min-h-screen bg-black text-white flex flex-col items-center justify-center px-4">
+    <main class="w-full max-w-md">
+        {% block body %}{% endblock %}
+    </main>
+</body>
+</html>
